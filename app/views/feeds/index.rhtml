@@ -1,0 +1,6 @@
+<% form_for @feed, :url=>{:action=> "create"} do |f|%>
+        Enter RSS Url:
+        <%=f.text_field :feed_name %>
+        <%= f.submit "Submit"%>
+<%end%>
+

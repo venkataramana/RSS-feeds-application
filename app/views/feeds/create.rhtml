@@ -1,0 +1,28 @@
+
+        <p style="color:#285C6B; font-family:arial; font: message-box; font-size:110% "> <b><u> <%=@des.channel.title%> </u></b> </p>
+         <p style="font-family:arial; font-size:20px; font: message-box;">
+
+         <%=@des.channel.description %> </p>
+
+        <table>
+                <%@rss.each do |rss| %>
+                        <tr>
+                                <td style="font-family:arial; font-size:100%; font: message-box;">
+                                        <b> <%=link_to "#{rss.title}", "#{rss.link}"%> </b> </br>
+                                        <sup stye="font-family:arial; font-size:8px">
+                                                <%= rss.date.strftime('%Y-%b-%d :: %H:%M:%S')%>
+                                         </sup>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td style="font-family:arial; font: message-box;">
+                                         <%if rss.methods.include?(:description)%>
+                                                <%= rss.description.html_safe %>  </br>
+                                        <%else%>
+                                                No description you are given  </br>
+                                        <%end%>
+                                </td>
+                        </tr>
+                <%end%>
+        </table>
+
